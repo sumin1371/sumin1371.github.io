@@ -3,3 +3,9 @@ description: hi it's sumin's blog
 theme: just-the-docs
 
 url: https://sumin1371.github.io/
+
+aux_links:
+  "Template Repository":
+    - https://github.com/sumin1371
+
+heading_anchors: false
