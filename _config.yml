@@ -5,7 +5,7 @@ theme: just-the-docs
 url: https://sumin1371.github.io/
 
 aux_links:
-  "Template Repository":
+  "my github":
     - https://github.com/sumin1371
 
-heading_anchors: false
+heading_anchors: true
