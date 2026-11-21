@@ -15,11 +15,19 @@ export default defineConfig({
 	integrations: [
 		starlight({
 			title: 'Sumin Jo',
-			description: '공부한 내용을 정리해 두는 곳',
+			description: 'CS undergraduate at UNIST. Notes on deep learning and AI systems.',
 			locales: {
 				root: { label: '한국어', lang: 'ko' },
 			},
-			social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/sumin1371' }],
+			social: [
+				{ icon: 'github', label: 'GitHub', href: 'https://github.com/sumin1371' },
+				{
+					icon: 'linkedin',
+					label: 'LinkedIn',
+					href: 'https://www.linkedin.com/in/sumin-jo-78165344a/',
+				},
+				{ icon: 'email', label: 'Email', href: 'mailto:suminman@unist.ac.kr' },
+			],
 			customCss: [
 				'@fontsource-variable/inter',
 				'@fontsource-variable/space-grotesk',
@@ -29,6 +37,7 @@ export default defineConfig({
 			],
 			components: {
 				Hero: './src/components/Hero.astro',
+				Header: './src/components/Header.astro',
 			},
 			sidebar: [
 				{
