@@ -6,6 +6,11 @@ updates:
       interval: weekly
     allow:
       - dependency-type: direct
+    ignore:
+      # katex CSS must match the katex version rehype-katex renders with (0.16.x);
+      # 0.17+ renames classes and breaks sub/superscripts. Revisit when rehype-katex upgrades.
+      - dependency-name: katex
+        versions: [">=0.17.0"]
   - package-ecosystem: github-actions
     directory: /
     schedule:
