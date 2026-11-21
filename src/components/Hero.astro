@@ -1,0 +1,75 @@
+---
+// 홈 상단(hero)을 Wishbone 스타일로 바꾼 Starlight Hero 대체 컴포넌트.
+// 내용은 index.mdx 의 frontmatter(hero.tagline, hero.actions)에서 가져온다.
+const { data } = Astro.locals.starlightRoute.entry;
+const { title = data.title, tagline, actions = [] } = data.hero || {};
+const eyebrow = (data as { eyebrow?: string }).eyebrow;
+---
+
+<div class="ws-hero not-content">
+	{eyebrow && <p class="ws-eyebrow">{eyebrow}</p>}
+	<h1 id="_top" data-page-title set:html={title} />
+	{tagline && <p class="ws-lead" set:html={tagline} />}
+	{
+		actions.length > 0 && (
+			<div class="ws-actions">
+				{actions.map(({ link, text, variant }) => (
+					<a
+						class:list={['ws-btn', variant === 'minimal' || variant === 'secondary' ? 'ws-btn--ghost' : 'ws-btn--primary']}
+						href={link}
+					>
+						{text}
+						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+							<path d="M5 12h14M13 6l6 6-6 6" />
+						</svg>
+					</a>
+				))}
+			</div>
+		)
+	}
+</div>
+
+<style>
+	.ws-hero {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 1.5rem;
+		padding-block: clamp(3rem, 2rem + 8vmin, 7rem) 3rem;
+		border-bottom: 1px solid var(--sl-color-hairline);
+	}
+
+	.ws-eyebrow {
+		margin: 0;
+		font-size: 0.875rem;
+		letter-spacing: 0.04em;
+		color: var(--sl-color-gray-3);
+	}
+
+	h1 {
+		margin: 0;
+		font-family: var(--ws-font-display);
+		font-size: clamp(3.5rem, 2rem + 9vw, 6rem);
+		font-weight: 600;
+		line-height: 0.95;
+		letter-spacing: -0.04em;
+		color: var(--sl-color-white);
+	}
+
+	.ws-lead {
+		margin: 0;
+		max-width: 28ch;
+		font-size: clamp(1.25rem, 1rem + 1.2vw, 1.75rem);
+		font-weight: 500;
+		line-height: 1.35;
+		letter-spacing: -0.02em;
+		color: var(--sl-color-white);
+	}
+
+	.ws-actions {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.75rem;
+		margin-top: 0.5rem;
+	}
+</style>
