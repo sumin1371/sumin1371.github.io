@@ -486,3 +486,40 @@ details.scan img {
 		gap: 0.5rem;
 	}
 }
+
+/* 메인 맨 아래 연락처: 얇은 선 위에 작은 한 줄 */
+.ws-contact {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
+	gap: 0.75rem 2rem;
+	margin-top: 0;
+	padding-block: 1.75rem;
+	border-top: 1px solid var(--ws-line);
+	font-size: 0.875rem;
+	color: var(--ws-text-muted);
+}
+
+.ws-contact p {
+	margin: 0;
+}
+
+.ws-contact ul {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.5rem 1.5rem;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.ws-contact a {
+	color: var(--ws-text);
+	text-decoration: none;
+}
+
+.ws-contact a:hover {
+	text-decoration: underline;
+	text-underline-offset: 0.2em;
+}
